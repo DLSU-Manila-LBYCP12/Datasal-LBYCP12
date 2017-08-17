@@ -39,7 +39,8 @@ public class Stack {
     public int size() {
         return list.size();
     }
-    
+
+    @Override
     public String toString() {
         String str = "";
         str += "------------------\n";
@@ -48,6 +49,14 @@ public class Stack {
             str += "\n";
         }
         str += "------------------";
+        /*
+        StringBuilder s = new StringBuilder();
+        s.append("");
+        for (int i = 0; i < list.size(); i++) {
+            s.append(list.toString() + "\n");
+        }
+        return s.toString();
+        */
         return str;
     }
 }
