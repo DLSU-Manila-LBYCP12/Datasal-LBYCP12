@@ -1,6 +1,6 @@
 package LOGIC;
 /**
- *A special cell that would indicate the goal of a Cow Object
+ *A special cell that would indicate the goal of a Vlad Object
  * @author
  */
 import acm.io.*;
@@ -8,13 +8,14 @@ import acm.program.*;
 import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-public class Gate extends Cell {
+
+public class Goal extends Cell {
     
-    public final static Color GATE_COLOR = Color.GRAY;
+    public final static Color GOAL_COLOR = Color.GRAY;
     public final static String GOAL_IMG = "C:\\Users\\Ryan\\Documents\\NetBeansProjects\\DATASALPROJECT\\resource\\Goal.jpg";
     protected JFrame frame;
     
-    public Gate(double x, double y, int posX, int posY, int width, int height, JFrame frame){
+    public Goal(double x, double y, int posX, int posY, int width, int height, JFrame frame){
         super(x, y, posX, posY, width, height);
         this.frame = frame;
         this.curColor = GATE_COLOR;
