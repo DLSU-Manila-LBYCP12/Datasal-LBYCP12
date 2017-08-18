@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 public class Goal extends Cell {
     
     public final static Color GOAL_COLOR = Color.GRAY;
-    public final static String GOAL_IMG = "C:\\Users\\Ryan\\Documents\\NetBeansProjects\\DATASALPROJECT\\resource\\Goal.jpg";
+    public final static String GOAL_IMG = "C:\\Users\\Ryan\\Documents\\NetBeansProjects\\DATASALPROJECT\\resource\\Melvin.jpg";
     protected JFrame frame;
     
     public Goal(double x, double y, int posX, int posY, int width, int height, JFrame frame){
