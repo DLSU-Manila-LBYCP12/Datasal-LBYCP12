@@ -5,16 +5,16 @@ package LOGIC;
  */
 import java.awt.Color;
 import GUI.Maze;
-public class Cow extends Cell implements PlayerListener{
+public class Vlad extends Cell implements PlayerListener{
     
-    public final static Color COW_COLOR = Color.BLUE;
-    public final static String COW_IMG = "C:\\Users\\Ryan\\Documents\\NetBeansProjects\\DATASALPROJECT\\resource\\Cow.png";
+    public final static Color VLAD_COLOR = Color.BLUE;
+    public final static String VLAD_IMG = "C:\\Users\\Ryan\\Documents\\NetBeansProjects\\DATASALPROJECT\\resource\\Vlad.png";
     
-    public Cow(double x, double y, int posX, int posY, int width, int height){
+    public Vlad(double x, double y, int posX, int posY, int width, int height){
         super(x, y, posX, posY, width, height);
-        this.status = Cell.COW_STAT;
-        this.curColor = COW_COLOR;
-        setImg(COW_IMG);
+        this.status = Cell.VLAD_STAT;
+        this.curColor = VLAD_COLOR;
+        setImg(VLAD_IMG);
     }
     
     @Override
