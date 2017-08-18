@@ -81,11 +81,11 @@ public class Maze extends JPanel implements ActionListener, KeyListener {
                     tiles[i][j] = t;
                 }
                 else if(map.getMap()[i][j] == Map.COW){
-                    Cow r = new Cow(x, y, j, i, width, height);
+                    Vlad r = new Vlad(x, y, j, i, width, height);
                     tiles[i][j] = r;
                 }
                 else if(map.getMap()[i][j] == Map.GATE){
-                    Gate c = new Gate(x, y, j, i, width, height, frame);
+                    Goal c = new Goal(x, y, j, i, width, height, frame);
                     tiles[i][j] = c;
                 }
                 x += width + 2;
@@ -106,12 +106,12 @@ public class Maze extends JPanel implements ActionListener, KeyListener {
             height = 40;
         }
         else if(map.getColums() >= 20 && map.getColums() < 26 || map.getRows() >= 20 && map.getRows() < 26){
-            width = 35;
-            height = 35;
+            width = 40;
+            height = 40;
         }
         else{
-            width = 25;
-            height = 25;
+            width = 40;
+            height = 40;
         }
         int x = 0, y = 0;
         for (int i = 0; i < map.getColums(); i++) {
@@ -124,10 +124,10 @@ public class Maze extends JPanel implements ActionListener, KeyListener {
                         g2d.drawImage(tiles[i][j].img, x, y, width, height, null);
                     }
                 } 
-                else if (tiles[i][j] instanceof Cow) {
+                else if (tiles[i][j] instanceof Vlad) {
                         g2d.drawImage(tiles[i][j].img, x, y, width, height, null);
                 } 
-                else if (tiles[i][j] instanceof Gate) {
+                else if (tiles[i][j] instanceof Goal) {
                         g2d.drawImage(tiles[i][j].img, x, y, width, height, null);
                 }
                 x += width;
@@ -147,24 +147,24 @@ public class Maze extends JPanel implements ActionListener, KeyListener {
         updateUI();
     }
     
-    public Cow findCow(){
-        Cow r = null;
+    public Vlad findVlad(){
+        Vlad r = null;
         for(int i = 0; i < this.map.getColums(); i++){
             for(int j = 0; j < this.map.getRows(); j++){
-                if(tiles[i][j] instanceof Cow){
-                    r = (Cow)tiles[i][j];
+                if(tiles[i][j] instanceof Vlad){
+                    r = (Vlad)tiles[i][j];
                 }
             }
         }
         return r;
     }
     
-    public Gate findGate(){
-        Gate c = null;
+    public Goal findGoal(){
+        Goal c = null;
         for(int i = 0; i < this.map.getColums(); i++){
             for(int j = 0; j < this.map.getRows(); j++){
-                if(tiles[i][j] instanceof Gate){
-                    c = (Gate)tiles[i][j];
+                if(tiles[i][j] instanceof Goal){
+                    c = (Goal)tiles[i][j];
                 }
             }
         }
@@ -176,12 +176,12 @@ public class Maze extends JPanel implements ActionListener, KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        Cow r = null;
+        Vlad r = null;
         
         for(int i = 0; i < map.getColums(); i++){
             for(int j = 0; j < map.getRows(); j++){
-                if(tiles[i][j] instanceof Cow){
-                    r = (Cow)tiles[i][j];
+                if(tiles[i][j] instanceof Vlad){
+                    r = (Vlad)tiles[i][j];
                 }
             }
         }
@@ -207,12 +207,6 @@ public class Maze extends JPanel implements ActionListener, KeyListener {
                 if(r != null)
                     algo.start();
                 break;
-                /*
-            case KeyEvent.VK_BACK_SPACE:
-                if(r != null)
-                   // System.out.println(anotherOne);
-                break;
-                */
         }
     }
 
@@ -224,10 +218,10 @@ public class Maze extends JPanel implements ActionListener, KeyListener {
         String s = "";
         for(int i = 0; i < map.getColums(); i++){
             for(int j = 0; j < map.getRows(); j++){
-                if(tiles[i][j] instanceof Cow){
+                if(tiles[i][j] instanceof Vlad){
                     s += "S";
                 }
-                if(tiles[i][j] instanceof Gate){
+                if(tiles[i][j] instanceof Goal){
                     s += "G";
                 }
                 if(tiles[i][j] instanceof Tile){
