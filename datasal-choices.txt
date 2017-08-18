@@ -1,0 +1,6 @@
+O(nlogn),O(logn)
+Greedy approach,Divide and conquer
+Unary tree,Binary tree
+Graph,Tree
+True,False
+O(n),O(n^2)

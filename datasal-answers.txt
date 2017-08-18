@@ -1,0 +1,6 @@
+O(nlogn)
+Divide and conquer
+Binary tree
+Graph
+True
+O(n)

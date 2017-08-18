@@ -1,0 +1,6 @@
+1.The worst-case time complexity of Merge sort is A) O(nlogn) B) O(logn) A
+2.Quick sort algorithm is an example of A) Greedy approach B) Divide and conquer B
+3.A directed tree in which outdegree of each node is less than or equal to two. A) Unary tree B) Binary tree B
+4.Which of them is non-linear data structure? A) Graph B) Tree A
+5.A node is a parent if it has successor nodes. A) True B) False A
+6.The best-case time complexity of Bubble sort is A) O(n) B) O(n^2) A
