@@ -16,8 +16,8 @@ public abstract class Cell extends Rectangle{
     protected Color curColor;
     public final static int PATH_STAT = 0;
     public final static int WALL_STAT = 1;
-    public final static int COW_STAT = 2;
-    public final static int GATE_STAT = 3;
+    public final static int VLAD_STAT = 2;
+    public final static int GOAL_STAT = 3;
     public Image img;
     
     public Cell(double x, double y, int posX, int posY, int width, int height){
