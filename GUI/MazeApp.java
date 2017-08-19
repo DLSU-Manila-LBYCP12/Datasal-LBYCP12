@@ -10,8 +10,7 @@ import javax.swing.JFrame;
 public class MazeApp extends JFrame implements WindowListener{
     
     private Maze maze;
-    private MapEditor editor;
-    
+
     public MazeApp(File f){
         super("DATASAL Project");
         this.maze = new Maze(f, this);
@@ -31,26 +30,7 @@ public class MazeApp extends JFrame implements WindowListener{
         addWindowListener(this);
         this.setVisible(false);
     }
-    
-    public MazeApp(MapEditor editor){
-        super("DATASAL Project");
-        this.editor = editor;
-        this.add(editor);
-        if(editor.getMap().getColums() >= 15 && editor.getMap().getColums() < 20 && editor.getMap().getRows() >= 15 && editor.getMap().getRows() < 20){
-            this.setSize(812, 836);
-        }   
-        else if(editor.getMap().getColums() >= 20 && editor.getMap().getColums() < 26 && editor.getMap().getRows() >= 20 && editor.getMap().getRows() < 26){
-            this.setSize(941, 962);
-        }
-        else if(editor.getMap().getColums() >= 26 && editor.getMap().getColums() <= 30 && editor.getMap().getRows() >= 26 && editor.getMap().getRows() <= 30){
-            this.setSize(826, 849);
-        }
-        else{
-            this.setSize(825, 848);
-        }
-        addWindowListener(this);
-        this.setVisible(false);
-    }
+ 
 
     @Override
     public void windowOpened(WindowEvent e) {}
