@@ -1,11 +1,13 @@
 package LOGIC;
+
 /**
  *
  * @author
  */
 import java.io.*;
+
 public class Map {
-    
+
     //private String mapName;
     private int rows, colums;
     private int[][] map;
@@ -19,128 +21,84 @@ public class Map {
     public final static int SOUTH = 200;
     public final static int EAST = 300;
     public final static int WEST = 400;
-    
-    public Map( int rows, int colums){
+
+    public Map(int rows, int colums) {
         this.rows = rows;
         this.colums = colums;
         this.map = new int[colums][rows];
-        for(int x = 0; x < colums; x++){
-            for(int y = 0; y < rows; y++){
+        for (int x = 0; x < colums; x++) {
+            for (int y = 0; y < rows; y++) {
                 map[x][y] = WALL;
             }
         }
     }
-    
-    public int getRows(){return this.rows;}
-    public void setRows(int rows){this.rows = rows;}
-    public int getColums(){return this.colums;}
-    public void setColums(int colums){this.colums = colums;}
-    public int[][] getMap(){return this.map;}
-    public void setMap(int x, int y, int status){this.map[y][x] = status;}
-    
-    public boolean isLegitMap(){
+
+    public int getRows() {
+        return this.rows;
+    }
+
+    public void setRows(int rows) {
+        this.rows = rows;
+    }
+
+    public int getColums() {
+        return this.colums;
+    }
+
+    public void setColums(int colums) {
+        this.colums = colums;
+    }
+
+    public int[][] getMap() {
+        return this.map;
+    }
+
+    public void setMap(int x, int y, int status) {
+        this.map[y][x] = status;
+    }
+
+    public boolean isLegitMap() {
         int vladCount = 0;
         int goalCount = 0;
-        
-        for(int i = 0; i < this.colums; i++){
-            for(int j = 0; j < this.rows; j++){
-                if(map[i][j] == VLAD){
+
+        for (int i = 0; i < this.colums; i++) {
+            for (int j = 0; j < this.rows; j++) {
+                if (map[i][j] == VLAD) {
                     vladCount++;
-                }
-                else if(map[i][j] == GOAL){
+                } else if (map[i][j] == GOAL) {
                     goalCount++;
                 }
             }
         }
-        
+
         return vladCount == 1 && goalCount == 1 && this.rows <= MAX_SIZE && this.colums <= MAX_SIZE && this.rows >= MIN_SIZE && this.colums >= MIN_SIZE;
     }
-    
-    @Override
-    public String toString(){
-        String map = "";
-        for(int i = 0; i < this.colums; i++){
-            for(int j = 0; j < this.rows; j++){
-                if (this.map[i][j] == PATH) {
-                    map += " ";
-                }
-                if (this.map[i][j] == WALL) {
-                    map += "#";
-                }
-                if (this.map[i][j] == VLAD) {
-                    map += "S";
-                }
-                if (this.map[i][j] == GOAL) {
-                    map += "G";
-                }
-            }
-            map = map + "\n";
-        }
-        return map;
-    }
-    
-    public void saveMap(File f){
-        BufferedWriter bw = null;
-        
-        try{
-            bw = new BufferedWriter(new FileWriter(f));
-            bw.write(Integer.toString(rows));
-            bw.write(" ");
-            bw.write(Integer.toString(colums));
-            bw.newLine();
-            for(int i = 0; i < this.colums; i++){
-                for(int j = 0; j < this.rows; j++){
-                    if(map[i][j] == PATH){
-                        bw.write(" ");
-                    }
-                    if(map[i][j] == WALL){
-                        bw.write("#");
-                    }
-                    if(map[i][j] == VLAD){
-                        bw.write("S");
-                    }
-                    if(map[i][j] == GOAL){
-                        bw.write("G");
-                    }
-                }
-                bw.newLine();
-            }
-            bw.flush();
-            bw.close();
-        }catch(IOException e){
-            System.out.println("(Map:saveMap) " + e.toString());
-        }finally{
-            if(bw != null){
-                try{
-                    bw.close();
-                }catch(IOException e2){}
-            }
-        }
-    }
-    
-    public static Map loadMap(File f){
+
+
+   public static Map loadMap(File f) {
         BufferedReader br = null;
         String line;
         Map m = null;
         String con = "";
-        
-        try{
+
+        try {
             br = new BufferedReader(new FileReader(f));
             int content;
             int ctr;
-            while((line = br.readLine()) != null){
+            while ((line = br.readLine()) != null) {
                 con = con + line + "\n";
             }
-        }catch(IOException e){
+        } catch (IOException e) {
             System.out.println("(Map:loadMap): " + e.toString());
-        }finally{
-            if(br != null){
-                try{
+        } finally {
+            if (br != null) {
+                try {
                     br.close();
-                }catch(IOException e2){}
+                } catch (IOException e2) {
+                }
             }
         }
-        
+
         int row = Integer.parseInt(con.substring(0, con.indexOf(" ")));
         int col = Integer.parseInt(con.substring(con.indexOf(" ") + 1, con.indexOf("\n")));
         con = con.substring(con.indexOf("\n") + 1);
@@ -167,11 +125,10 @@ public class Map {
                 }
                 x++;
             }
-        }
-        else{
-            
+        } else {
+
         }
         return m;
     }
-    
+
 }

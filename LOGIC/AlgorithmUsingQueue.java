@@ -24,7 +24,7 @@ public class AlgorithmUsingQueue implements ActionListener{
         this.myQueue = new Queue();
         this.visitedNodes = new ArrayList<>();
         this.maze = maze;
-        this.curNode = new Node(maze.findCow().getPosX(), maze.findCow().getPosY());
+        this.curNode = new Node(maze.findVlad().getPosX(), maze.findVlad().getPosY());
         visitedNodes.add(curNode);
         this.t = new Timer(100, this);
         
@@ -159,6 +159,6 @@ public class AlgorithmUsingQueue implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        solveMaze(maze);
+       // solveMaze(maze);
     }
 }

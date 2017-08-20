@@ -28,7 +28,7 @@ public class AlgorithmUsingStack implements ActionListener {
     }
     
     public void solveMaze(Maze maze){
-        Cow r = maze.findCow();
+        Vlad r = maze.findVlad();
         if(isPath(maze, NORTH) && !hasPassed(new Node(r.getPosX(), r.getPosY() - 1))){
             myStack.push(new Node(r.getPosX(), r.getPosY()));
             visitedNodes.add(new Node(r.getPosX(), r.getPosY()));
@@ -61,7 +61,7 @@ public class AlgorithmUsingStack implements ActionListener {
             visitedNodes.add(new Node(r.getPosX(), r.getPosY()));
             
             if(myStack.isEmpty()){
-                JOptionPane.showMessageDialog(null, "No PATH to GOAL", "Machine Project", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "No PATH to GOAL", "Datasal Project", JOptionPane.WARNING_MESSAGE);
                 stop();
                 maze.getFrame().dispose();
             }
@@ -69,18 +69,13 @@ public class AlgorithmUsingStack implements ActionListener {
                 stepBack(maze,(Node)myStack.pop());
             }
         }
+        
+        
     }
-    
-    public Stack getPathCoordinates(){
-        Stack a = new Stack();
-        do{
-            a.push(myStack.pop());
-        }while(!myStack.isEmpty());
-        return a;
-    }
+
     
     private void stepBack(Maze maze, Node node){
-        Cow r = maze.findCow();
+        Vlad r = maze.findVlad();
         if(r.getPosX() == node.getX() && r.getPosY() == node.getY() - 1){
             r.moveDown(maze);
             ((Tile)maze.getTiles()[r.getPosY() - 1][r.getPosX()]).setImg(Tile.PATH_IMG);
@@ -117,12 +112,12 @@ public class AlgorithmUsingStack implements ActionListener {
     }
     
     private boolean isPath(Maze maze, int direction){
-        Cow r = maze.findCow();
+        Vlad r = maze.findVlad();
         Cell[][] cells = maze.getTiles();
         switch(direction){
             case NORTH://up
                 if(r.getPosY() > 0){
-                    if(cells[r.getPosY() - 1][r.getPosX()] instanceof Gate){
+                    if(cells[r.getPosY() - 1][r.getPosX()] instanceof Goal){
                         r.moveUp(maze);
                         stop();
                     }
@@ -142,7 +137,7 @@ public class AlgorithmUsingStack implements ActionListener {
                 
             case SOUTH://down
                 if(r.getPosY() < maze.getMap().getColums() - 1){
-                    if(cells[r.getPosY() + 1][r.getPosX()] instanceof Gate){
+                    if(cells[r.getPosY() + 1][r.getPosX()] instanceof Goal){
                         r.moveDown(maze);
                         stop();
                     }
@@ -162,7 +157,7 @@ public class AlgorithmUsingStack implements ActionListener {
                 
             case EAST://left
                 if(r.getPosX() > 0){
-                    if(cells[r.getPosY()][r.getPosX() - 1] instanceof Gate){
+                    if(cells[r.getPosY()][r.getPosX() - 1] instanceof Goal){
                         r.moveLeft(maze);
                         stop();
                     }
@@ -182,7 +177,7 @@ public class AlgorithmUsingStack implements ActionListener {
                 
             case WEST://right
                 if(r.getPosX() < maze.getMap().getRows() - 1){
-                    if(cells[r.getPosY()][r.getPosX() + 1] instanceof Gate){
+                    if(cells[r.getPosY()][r.getPosX() + 1] instanceof Goal){
                         r.moveRight(maze);
                         stop();
                     }
