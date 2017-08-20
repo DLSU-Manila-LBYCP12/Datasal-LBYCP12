@@ -16,7 +16,7 @@ public class MainMenu {
 
     private static JButton bLoadMap;
     private static ActionListener al = new ActionListener() {
-        JFileChooser file = new JFileChooser("../DASTAPPMP/Save File");
+        JFileChooser file = new JFileChooser("C:\\Users\\Ryan\\Documents\\NetBeansProjects\\DATASALPROJECT\\Save File");
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -43,7 +43,7 @@ public class MainMenu {
         frame.add(jlayer);
         frame.setSize(300, 200);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(false);
+        frame.setResizable(true);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
@@ -53,8 +53,8 @@ public class MainMenu {
         bLoadMap.addActionListener(al);
         JPanel p = new JPanel(new GridBagLayout());
         GridBagConstraints con = new GridBagConstraints();
-        con.insets = new Insets(10, 10, 10, 10);
-        con.anchor = GridBagConstraints.EAST;
+        //con.insets = new Insets(10, 10, 10, 10);
+        //con.anchor = GridBagConstraints.SOUTH;
         con.gridx = 0;
         con.gridy = 0;
         p.add(bLoadMap, con);
@@ -82,7 +82,7 @@ class SpotlightLayerUI extends LayerUI<JPanel> {
         );
     }
 
-    @Override
+   /*@Override
     public void uninstallUI(JComponent c) {
         JLayer jlayer = (JLayer) c;
         jlayer.setLayerEventMask(0);
@@ -113,5 +113,5 @@ class SpotlightLayerUI extends LayerUI<JPanel> {
         mX = p.x;
         mY = p.y;
         l.repaint();
-    }
+    }*/ 
 }

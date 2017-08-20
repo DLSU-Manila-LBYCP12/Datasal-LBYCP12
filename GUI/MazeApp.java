@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 public class MazeApp extends JFrame implements WindowListener{
     
     private Maze maze;
-
+    
     public MazeApp(File f){
         super("DATASAL Project");
         this.maze = new Maze(f, this);
@@ -30,7 +30,6 @@ public class MazeApp extends JFrame implements WindowListener{
         addWindowListener(this);
         this.setVisible(false);
     }
- 
 
     @Override
     public void windowOpened(WindowEvent e) {}
@@ -39,8 +38,7 @@ public class MazeApp extends JFrame implements WindowListener{
     public void windowClosing(WindowEvent e) {
         if(maze != null)
             maze.getAlgorithm().stop();
-        if(editor != null)
-            editor.windowClosing(e);
+ 
     }
 
     @Override
